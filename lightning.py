@@ -116,7 +116,7 @@ class ModelModule(LightningModule):
         return
 
     def _step(self, batch, batch_idx, step_type):
-        loss, loss_ctc, loss_att, acc = self.model(
+        loss, loss_ctc, loss_att, acc, loss_att_reversed, acc_reversed = self.model(
             batch["inputs"], batch["input_lengths"], batch["targets"]
         )
         batch_size = len(batch["inputs"])
@@ -140,11 +140,24 @@ class ModelModule(LightningModule):
             self.log(
                 "decoder_acc", acc, on_step=True, on_epoch=True, batch_size=batch_size
             )
+            self.log(
+                "loss_att_reversed",
+                loss_att_reversed,
+                on_step=False,
+                on_epoch=True,
+                batch_size=batch_size,
+            )
+            self.log(
+                "decoder_acc_reversed", acc_reversed, on_step=True, on_epoch=True, batch_size=batch_size
+            )
         else:
             self.log("loss_val", loss, batch_size=batch_size)
             self.log("loss_ctc_val", loss_ctc, batch_size=batch_size)
             self.log("loss_att_val", loss_att, batch_size=batch_size)
             self.log("decoder_acc_val", acc, batch_size=batch_size)
+            self.log("loss_att_reversed_val", loss_att_reversed, batch_size=batch_size)
+            self.log("decoder_acc_reversed_val", acc_reversed, batch_size=batch_size)
+
 
         if step_type == "train":
             self.log(

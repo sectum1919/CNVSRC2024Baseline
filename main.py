@@ -18,7 +18,7 @@ os.environ["WANDB_SILENT"] = "true"
 logging.basicConfig(level=logging.WARNING)
 
 
-@hydra.main(config_path="conf", config_name="test_multi-speaker")
+@hydra.main(config_path="conf", config_name="train_cncvs_4s")
 def main(cfg: DictConfig) -> None:
     seed_everything(42, workers=True)
     # cfg.slurm_job_id = os.environ["SLURM_JOB_ID"]
