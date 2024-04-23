@@ -43,9 +43,11 @@ model:
     dheads: 12
     dunits: 3072
     dlayers: 6
+    r_dlayers: 3
     lsm_weight: 0.1
     transformer_length_normalized_loss: false
     mtlalpha: 0.1
+    mtlbeta: 0.3
     ctc_type: builtin
     rel_pos_type: latest
   audio_backbone:
@@ -70,6 +72,7 @@ model:
     lsm_weight: 0.1
     transformer_length_normalized_loss: false
     mtlalpha: 0.1
+    mtlbeta: 0.3
     ctc_type: builtin
     rel_pos_type: latest
   language_model:

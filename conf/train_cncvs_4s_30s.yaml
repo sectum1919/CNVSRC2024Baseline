@@ -43,9 +43,11 @@ model:
     dheads: 12
     dunits: 3072
     dlayers: 6
+    r_dlayers: 3
     lsm_weight: 0.1
     transformer_length_normalized_loss: false
     mtlalpha: 0.1
+    mtlbeta: 0.3
     ctc_type: builtin
     rel_pos_type: latest
   audio_backbone:
@@ -70,6 +72,7 @@ model:
     lsm_weight: 0.1
     transformer_length_normalized_loss: false
     mtlalpha: 0.1
+    mtlbeta: 0.3
     ctc_type: builtin
     rel_pos_type: latest
   language_model:
@@ -107,12 +110,12 @@ decode:
 
 exp_dir: ${code_root_dir}/exp/
 exp_name: cncvs_4s_30s/
-num_workers: 6
+num_workers: 8
 gpus: 6
 slurm_job_id: 1
 train: true
 log_wandb: false
 infer_path: null
-ckpt_path: ${code_root_dir}//pretrained_models/model_avg_14_23_cncvs_4s.pth
+ckpt_path: ${code_root_dir}/pretrained_models/model_avg_14_23_cncvs_4s.pth
 transfer_frontend: null
 remove_ctc: null
