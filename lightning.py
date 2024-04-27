@@ -53,7 +53,9 @@ class ModelModule(LightningModule):
                 if self.cfg.remove_ctc:
                     dict_new = {}
                     for key, value in ckpt.items():
-                        if key not in ['decoder.embed.0.weight', 'decoder.output_layer.weight', 'decoder.output_layer.bias', 'ctc.ctc_lo.weight', 'ctc.ctc_lo.bias']:
+                        if key not in ['decoder.embed.0.weight', 'decoder.output_layer.weight', 'decoder.output_layer.bias',
+                                       'r_decoder.embed.0.weight', 'r_decoder.output_layer.weight', 'r_decoder.output_layer.bias',
+                                       'ctc.ctc_lo.weight', 'ctc.ctc_lo.bias']:
                             dict_new[key] = value
                     self.model.load_state_dict(dict_new, strict=False)
                 else:
