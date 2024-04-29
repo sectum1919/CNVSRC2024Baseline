@@ -18,7 +18,7 @@ data:
 logger:
   _target_: pytorch_lightning.loggers.WandbLogger
   log_model: true
-  name: cncvs_4s_30s/
+  name: ${exp_name}
   offline: false
   project: auto_avsr
   mode: online
@@ -116,6 +116,6 @@ slurm_job_id: 1
 train: true
 log_wandb: false
 infer_path: null
-ckpt_path: ${code_root_dir}/pretrained_models/model_avg_14_23_cncvs_4s.pth
+ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_4s.pth
 transfer_frontend: null
 remove_ctc: null

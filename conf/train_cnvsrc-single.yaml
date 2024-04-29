@@ -2,7 +2,7 @@ code_root_dir:
 data_root_dir: 
 
 checkpoint:
-  save_top_k: 5
+  save_top_k: 80
 data:
   modality: video
   use_audio_normalise: false
@@ -116,6 +116,6 @@ slurm_job_id: 1
 train: true
 log_wandb: false
 infer_path: null
-ckpt_path: ${code_root_dir}/pretrained_models/model_avg_last10_cncvs_4s_30s.pth
+ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_4s_30s.pth
 transfer_frontend: false
 remove_ctc: true

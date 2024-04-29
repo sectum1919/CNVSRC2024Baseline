@@ -109,16 +109,16 @@ decode:
   snr_target: 999999
 
 exp_dir: ${code_root_dir}/exp/
-exp_name: cnvsrc-single-test/
+exp_name: test-cnvsrc-single/
 num_workers: 8
 gpus: 1
 slurm_job_id: 1
 train: false
 log_wandb: false
-infer_path: ${code_root_dir}/predict/model_avg_last5_cncvs_cnvsrc-single_valid.json
-ckpt_path: ${code_root_dir}/pretrained_models/model_avg_last5_cncvs_cnvsrc-single.pth
 transfer_frontend: false
 remove_ctc: false
-infer_ckpt_path: ${code_root_dir}/pretrained_models/model_avg_last5_cncvs_cnvsrc-single.pth
+infer_path: ${code_root_dir}/predict/model_avg_cncvs_cnvsrc-single_valid.json
+ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_cnvsrc-single.pth
+infer_ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_cnvsrc-single.pth
 filelist_csv: ${code_root_dir}/data/cnvsrc-single/valid.csv
 device: 'cuda:0'

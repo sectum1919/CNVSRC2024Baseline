@@ -18,7 +18,7 @@ data:
 logger:
   _target_: pytorch_lightning.loggers.WandbLogger
   log_model: true
-  name: test_cnvsrc-multi
+  name: ${exp_name}
   offline: false
   project: auto_avsr
   mode: online
@@ -109,16 +109,16 @@ decode:
   snr_target: 999999
 
 exp_dir: ${code_root_dir}/exp/
-exp_name: cnvsrc-multi-test/
+exp_name: test-cnvsrc-multi/
 num_workers: 8
 gpus: 2
 slurm_job_id: 1
 train: false
 log_wandb: false
-infer_path: ${code_root_dir}/predict/model_avg_last5_cncvs_cnvsrc-multi_valid.json
-ckpt_path: ${code_root_dir}/pretrained_models/model_avg_last5_cncvs_cnvsrc-multi.pth
 transfer_frontend: false
 remove_ctc: false
-infer_ckpt_path: ${code_root_dir}/pretrained_models/model_avg_last5_cncvs_cnvsrc-multi.pth
+infer_path: ${code_root_dir}/predict/model_avg_cncvs_cnvsrc-multi_valid.json
+ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_cnvsrc-multi.pth
+infer_ckpt_path: ${code_root_dir}/pretrained_models/model_avg_cncvs_cnvsrc-multi.pth
 filelist_csv: ${code_root_dir}/data/cnvsrc-multi/valid.csv
-device: 'cuda:1'
+device: 'cuda:0'

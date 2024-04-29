@@ -12,7 +12,7 @@
 我们默认您将下载得到的压缩文件按照以下文件夹结构放置：
 ```
 CNVSRC/
-└── CNVSRC2023
+└── CNVSRC2024
     ├── cncvs/
     |   ├── news/
     |   |   ├── news_part01.tar.gz
@@ -27,7 +27,7 @@ CNVSRC/
 
 请首先对所有压缩包执行解压缩命令
 ``` Shell
-# cd CNVSRC/CNVSRC2023/
+# cd CNVSRC/CNVSRC2024/
 # cd cncvs/news/
 # tar -xzvf news_part01.tar.gz
 # tar -xzvf news_part02.tar.gz
@@ -53,7 +53,7 @@ CNVSRC/
 
 ```
 CNVSRC/
-└── CNVSRC2023/
+└── CNVSRC2024/
     ├── cncvs/
     |   ├── news/
     |   |   ├── n001/
@@ -82,14 +82,14 @@ CNVSRC/
 Tips: 在竞赛的后期会开放下载评测集，对于下载得到评测集：
 ```
 CNVSRC/
-└── CNVSRC2023
+└── CNVSRC2024
     ├── cnvsrc-multi-eval.tar.gz
     └── cnvsrc-single-eval.tar.gz
 ```
 所有的解压缩操作均与上述的开发集相同，即：
 
 ``` Shell
-# cd CNVSRC/CNVSRC2023/
+# cd CNVSRC/CNVSRC2024/
 # tar -xzvf cnvsrc-multi-eval.tar.gz
 # tar -xzvf cnvsrc-single-eval.tar.gz
 ```
@@ -98,7 +98,7 @@ CNVSRC/
 
 ```
 CNVSRC/
-└── CNVSRC2023/
+└── CNVSRC2024/
     ├── cncvs/
     |   ├── news/
     |   |   ├── n001/
@@ -132,6 +132,10 @@ CNVSRC/
     └── cnvsrc-single-eval.tar.gz
 ```
 
+需要**注意**的是，训练本基线系统所使用的全部数据与CNVSRC2023基线系统相同。
+但本次竞赛中我们额外提供了CN-CVS2数据集的部分数据，作为CN-CVS数据集的补充。
+您可以从竞赛[官网](http://cnceleb.org/competition)下载CN-CVS2数据集并按照类似方式进行处理和使用。
+
 ## 如何运行`run.sh`
 
 `run.sh`的重点在于合理地调用`prepare_filescp.py`和`detect_landmark_list.py`:
@@ -152,8 +156,8 @@ python detect_landmark_list.py --list $DATASET_NAME-$SPLIT.scp --rank 0 --shard 
 
 您可以通过修改bash文件中的参数来运行：
 
-- `DOWNLOAD_DATA_PATH`: 已下载并解压的的数据集路径，按照上述的解压方式时应为`CNVSRC/CNVSRC2023/`
-- `TARGET_DATA_PATH`: 目标路径，已提取出的视频数据将会储存在目标路径下，其目录结构与`$DOWNLOAD_DATA_PATH`保持一致，推荐使用`CNVSRC/CNVSRC2023_lips/`。
+- `DOWNLOAD_DATA_PATH`: 已下载并解压的的数据集路径，按照上述的解压方式时应为`CNVSRC/CNVSRC2024/`
+- `TARGET_DATA_PATH`: 目标路径，已提取出的视频数据将会储存在目标路径下，其目录结构与`$DOWNLOAD_DATA_PATH`保持一致，推荐使用`CNVSRC/CNVSRC2024_lips/`。
 - `DATASET_NAME`: 想要处理的数据集的名字，`cncvs` / `multi-speaker` / `single-speaker`
 - `SPLIT`: 想要处理的数据集划分，`train` / `valid`，这个参数对于`cncvs`数据集不起作用。
 - `CODE_ROOT_PATH`: 本代码库的路径，如果您在本目录下直接执行此bash文件则不需要改动。

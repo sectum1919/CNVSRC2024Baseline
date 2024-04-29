@@ -1,18 +1,20 @@
-<h1 align="center">CNVSRC 2023 Baseline</h1>
+<h1 align="center">CNVSRC 2024 Baseline</h1>
 
 ## Introduction
 
-This repository is the baseline code for CNVSRC2023 (Chinese Continuous Visual Speech Recognition Challenge 2023).
+This repository is the baseline code for CNVSRC2024 (Chinese Continuous Visual Speech Recognition Challenge 2024).
 
 The code in this repository is based on the SOTA method [mpc001/auto_avsr](https://github.com/mpc001/auto_avsr) on the LRS3 dataset. We have added some configuration files to run this code on CN-CVS and the datasets provided in this challenge. Additionally, we have removed some code that is not needed for running this baseline and modified the implementation of some functionalities.
+
+In addition, this repository has a similar overall architecture to the [CNVSRC2023Baseline](https://github.com/MKT-Dataoceanai/CNVSRC2023Baseline), but there are some differences in how the system is implemented. The performance of this baseline system is better than that of CNVSRC2023Baseline, and we recommend using this repository as the baseline system.
 
 ## Preparation
 
 1. Clone the repository and navigate to it:
 
 ```Shell
-git clone git@github.com:MKT-Dataoceanai/CNVSRC2023Baseline.git
-cd CNVSRC2023Baseline
+git clone git@github.com:sectum1919/CNVSRC2024Baseline.git
+cd CNVSRC2024Baseline
 git submodule init
 git submodule update
 cd tools/face_detection
@@ -20,7 +22,7 @@ git lfs pull
 cd ../../
 ```
 
-If you don't have git-lfs installed, Please go to [here](https://github.com/sectum1919/face_detection/tree/ec0d6be271871f4ec551d82c2b6c55779d9d60db/ibug/face_detection/retina_face/weights) to download the model file and put it into `CNVSRC2023Baseline/tools/face_detection/ibug/face_detection/retina_face/weights/`
+If you don't have git-lfs installed, Please go to [here](https://github.com/sectum1919/face_detection/tree/ec0d6be271871f4ec551d82c2b6c55779d9d60db/ibug/face_detection/retina_face/weights) to download the model file and put it into `CNVSRC2024Baseline/tools/face_detection/ibug/face_detection/retina_face/weights/`
 
 |       Model name      |             md5sum             |
 |-----------------------|--------------------------------|
@@ -140,14 +142,14 @@ We prefer using `predict.py` to observe the real-time output text.
 
 The table below contains the CER performance of Models on their own task.
 
-Download model files from [huggingface](https://huggingface.co/DataOceanAI/CNVSRC2023Baseline) or [modelscope](https://www.modelscope.cn/speechoceanadmin/CNVSRC2023Baseline)。
+Download model files from [huggingface](https://huggingface.co/chenchen2121/CNVSRC2024Baseline) or [modelscope](https://www.modelscope.cn/chenchen2121/CNVSRC2024Baseline)。
 
-|          Task         |       Training Data           | CER on Dev | CER on Eval | File Name                                |
-|:---------------------:|:-----------------------------:|:----------:|:-----------:|:-----------------------------------------|
-|     Pre-train         | CN-CVS (<4s)                  |     /      |      /      | model_avg_14_23_cncvs_4s.pth             |
-|     Pre-train         | CN-CVS (full)                 |     /      |      /      | model_avg_last10_cncvs_4s_30s.pth        |
-|Single-speaker VSR (T1)| CN-CVS + CNVSRC-Single.Dev    |   48.57%   |    48.60%   | model_avg_last5_cncvs_cnvsrc-single.pth  |
-|Multi-speaker VSR (T2) | CN-CVS + CNVSRC-Multi.Dev     |   58.77%   |    58.37%   | model_avg_last5_cncvs_cnvsrc-multi.pth   |
+|          Task         |       Training Data           | CER on Dev | CER on Eval | File Name                          |
+|:---------------------:|:-----------------------------:|:----------:|:-----------:|:-----------------------------------|
+|     Pre-train         | CN-CVS (<4s)                  |     /      |      /      | model_avg_cncvs_4s.pth             |
+|     Pre-train         | CN-CVS (full)                 |     /      |      /      | model_avg_cncvs_4s_30s.pth         |
+|Single-speaker VSR (T1)| CN-CVS + CNVSRC-Single.Dev    |   41.22%   |    39.66%   | model_avg_cncvs_cnvsrc-single.pth  |
+|Multi-speaker VSR (T2) | CN-CVS + CNVSRC-Multi.Dev     |   52.42%   |    52.20%   | model_avg_cncvs_cnvsrc-multi.pth   |
 
 ## License
 
@@ -157,5 +159,5 @@ It is noted that the code can only be used for comparative or benchmarking purpo
 
 ```
 [Chen Chen](chenchen[at]cslt.org)
-[CNVSRC2023](cnvsrc[at]cnceleb.org)
+[CNVSRC2024](cnvsrc[at]cnceleb.org)
 ```

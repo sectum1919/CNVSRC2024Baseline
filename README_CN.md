@@ -1,18 +1,21 @@
-<h1 align="center">CNVSRC2023 基线系统</h1>
+<h1 align="center">CNVSRC2024 基线系统</h1>
 
 ## 简介
 
-本仓库是CNVSRC2023挑战赛的基线系统代码。
+本仓库是CNVSRC2024挑战赛的基线系统代码。
 
 本仓库的代码源自LRS3数据集上的SOTA方法[mpc001/auto_avsr](https://github.com/mpc001/auto_avsr)。我们添加了一些配置文件以使用此代码在CN-CVS和本次挑战赛各任务中提供的数据集上进行训练。此外，我们删除了部分运行此baseline时暂不需要的代码并修改了部分功能的实现方式。
+
+此外，本仓库与CNVSRC2023挑战赛的[基线系统](https://github.com/MKT-Dataoceanai/CNVSRC2023Baseline)具有相似的整体架构，但在一些具体实现方式上有区别。
+本系统的性能优于CNVSRC2023挑战赛的基线系统，我们推荐使用本仓库作为基线系统。
 
 ## 准备工作
 
 1. 克隆本仓库并进入代码路径:
 
 ```Shell
-git clone git@github.com:MKT-Dataoceanai/CNVSRC2023Baseline.git
-cd CNVSRC2023Baseline
+git clone git@github.com:sectum1919/CNVSRC2024Baseline.git
+cd CNVSRC2024Baseline
 git submodule init
 git submodule update
 cd tools/face_detection
@@ -20,7 +23,7 @@ git lfs pull
 cd ../../
 ```
 
-如果您没有安装git lfs，请到[这里](https://github.com/sectum1919/face_detection/tree/ec0d6be271871f4ec551d82c2b6c55779d9d60db/ibug/face_detection/retina_face/weights)下载模型文件并放入`CNVSRC2023Baseline/tools/face_detection/ibug/face_detection/retina_face/weights/`
+如果您没有安装git lfs，请到[这里](https://github.com/sectum1919/face_detection/tree/ec0d6be271871f4ec551d82c2b6c55779d9d60db/ibug/face_detection/retina_face/weights)下载模型文件并放入`CNVSRC2024Baseline/tools/face_detection/ibug/face_detection/retina_face/weights/`
 
 |       Model name      |             md5sum             |
 |-----------------------|--------------------------------|
@@ -132,7 +135,7 @@ python main.py
 
 下面的表格列出了各个模型在各自任务上的CER。
 
-可以从 [huggingface](https://huggingface.co/DataOceanAI/CNVSRC2023Baseline) 或 [modelscope](https://www.modelscope.cn/speechoceanadmin/CNVSRC2023Baseline) 下载模型文件。
+可以从 [huggingface](https://huggingface.co/chenchen2121/CNVSRC2024Baseline) 或 [modelscope](https://www.modelscope.cn/chenchen2121/CNVSRC2024Baseline) 下载模型文件。
 
 |          Task         |       Training Data           | CER on Dev | CER on Eval | File Name                                |
 |:---------------------:|:-----------------------------:|:----------:|:-----------:|:-----------------------------------------|

@@ -1,12 +1,12 @@
-code_root_dir: /work2/cchen/CNVSRC2024Baseline/
-data_root_dir: /work2/cchen/data/audio-visual/
+code_root_dir: 
+data_root_dir: 
 
 checkpoint:
   save_top_k: 75
 data:
   modality: video
   use_audio_normalise: false
-  max_frames: 450
+  max_frames: 1000
   max_frames_val: 100
   dataset:
     root: ${data_root_dir}
@@ -109,7 +109,7 @@ decode:
   snr_target: 999999
 
 exp_dir: ${code_root_dir}/exp/
-exp_name: cncvs_4s_bitransformer/
+exp_name: cncvs_4s/
 num_workers: 8
 gpus: 1
 slurm_job_id: 1

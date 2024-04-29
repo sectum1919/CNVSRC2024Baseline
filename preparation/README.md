@@ -2,7 +2,7 @@
 We provide this pipeline to extract lip region videos from the provided video files.
 Please follow the steps below to download and preprocess the data.
 
-1. Download the required dataset from the CNVSRC2023 website.
+1. Download the required dataset from the CNVSRC2024 website.
 
 2. Modify the data paths in `run.sh` and execute `sh run.sh`.
 
@@ -11,7 +11,7 @@ Please follow the steps below to download and preprocess the data.
 By default, place the downloaded compressed file according to the following folder structure:
 ```
 CNVSRC/
-└── CNVSRC2023
+└── CNVSRC2024
     ├── cncvs/
     |   ├── news/
     |   |   ├── news_part01.tar.gz
@@ -27,7 +27,7 @@ CNVSRC/
 First, please execute the decompress command for all packages:
 
 ``` Shell
-# cd CNVSRC/CNVSRC2023/
+# cd CNVSRC/CNVSRC2024/
 # cd cncvs/news/
 # tar -xzvf news_part01.tar.gz
 # tar -xzvf news_part02.tar.gz
@@ -53,7 +53,7 @@ After extracting the packages, you will get the following directory:
 
 ```
 CNVSRC/
-└── CNVSRC2023/
+└── CNVSRC2024/
     ├── cncvs/
     |   ├── news/
     |   |   ├── n001/
@@ -82,7 +82,7 @@ CNVSRC/
 Tips: Later the evaluation set will be available for download, for the downloaded evaluation set:
 ```
 CNVSRC/
-└── CNVSRC2023
+└── CNVSRC2024
     ├── cnvsrc-multi-eval.tar.gz
     └── cnvsrc-single-eval.tar.gz
 ```
@@ -90,7 +90,7 @@ CNVSRC/
 All decompression and merge commands are the same as the dev set described above.
 
 ``` Shell
-# cd CNVSRC/CNVSRC2023/
+# cd CNVSRC/CNVSRC2024/
 # tar -xzvf cnvsrc-multi-eval.tar.gz
 # tar -xzvf cnvsrc-single-eval.tar.gz
 ```
@@ -99,7 +99,7 @@ Finally, you will get the following directory:
 
 ```
 CNVSRC/
-└── CNVSRC2023/
+└── CNVSRC2024/
     ├── cncvs/
     |   ├── news/
     |   |   ├── n001/
@@ -133,6 +133,10 @@ CNVSRC/
     └── cnvsrc-single-eval.tar.gz
 ```
 
+It should be **noted** that all the data used in the training baseline system is the same as that of the CNVSRC2023 baseline system.
+However, in this competition, we provide some additional data from part of the CN-CVS2 dataset as a supplement to the CN-CVS dataset.
+You can download this dataset from the contest [website](http://cnceleb.org/competition) and process and use it in a similar way.
+
 ## How to run `run.sh`
 
 The point of 'run.sh' is to call `prepare_filescp.py` and `detect_landmark_list.py` reasonably:
@@ -153,8 +157,8 @@ The `prepare_filescp.py` will generate the `.scp` list file required for the sec
 
 You can run it by modifying the parameters in the bash file:
 
-- `DOWNLOAD_DATA_PATH`: Path to the downloaded and extracted dataset, eg. `CNVSRC/CNVSRC2023/`.
-- `TARGET_DATA_PATH`: The target path where the extracted video data will be stored. The directory structure will be the same as `$DOWNLOAD_DATA_PATH`, we recommand using `CNVSRC/CNVSRC2023_lips/`.
+- `DOWNLOAD_DATA_PATH`: Path to the downloaded and extracted dataset, eg. `CNVSRC/CNVSRC2024/`.
+- `TARGET_DATA_PATH`: The target path where the extracted video data will be stored. The directory structure will be the same as `$DOWNLOAD_DATA_PATH`, we recommand using `CNVSRC/CNVSRC2024_lips/`.
 - `DATASET_NAME`: The name of the dataset to process, `cncvs` / `multi-speaker` / `single-speaker`.
 - `SPLIT`: The dataset split to process, `train` / `valid`, this parameter has no effect when processing the `CNCVS` dataset. 
 - `CODE_ROOT_PATH`: The path to this code repository.
